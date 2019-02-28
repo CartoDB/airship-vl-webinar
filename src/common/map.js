@@ -8,7 +8,7 @@ function loadMap() {
     dragRotate: false,
     touchZoomRotate: false
   });
-  
+
   carto.setDefaultAuth({
     username: 'roman-carto',
     apiKey: 'default_public'
@@ -16,12 +16,16 @@ function loadMap() {
   
   const s = carto.expressions;
   
-  const source = new carto.source.SQL(`select * from ne_10m_airports`);
+  const source = new carto.source.Dataset('ne_10m_airports');
   const viz = new carto.Viz(`
+    @locationHist: viewportHistogram($location)
+    @longitudeHist: viewportHistogram($longitude)
     strokeWidth: 0
   `);
   
   const vizLayer = new carto.Layer('layer', source, viz);
   
-  vizLayer.addTo(map);  
+  vizLayer.addTo(map); 
+  
+  return vizLayer;
 }

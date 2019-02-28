@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A Map and a toolbar</title>
+  <link rel="stylesheet" href="https://libs.cartocdn.com/airship-style/v1.0.3/airship.css">
+  <link rel="stylesheet" href="https://libs.cartocdn.com/airship-icons/v1.0.3/icons.css">
+  <script src="https://libs.cartocdn.com/airship-components/v1.0.3/airship.js"></script>
+  <!-- Include Mapbox GL JS -->
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js"></script>
+  <!-- Include Mapbox GL CSS -->
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css" rel="stylesheet" />
+  <!-- Include CARTO VL -->
+  <script src="https://libs.cartocdn.com/carto-vl/v1.1.1/carto-vl.js"></script> 
+</head>
+
+<body class="as-app-body">
+  <div class="as-app">
+    <header class="as-toolbar">
+      <div class="as-toolbar__item">
+        <img id="logo" src="/src/common/logo.svg" />
+      </div>
+
+      <nav class="as-toolbar__actions">
+        <ul>
+          <li>
+              <a class="as-toolbar__item" href="https://carto.com/developers/airship/reference/#/layout/toolbar" target="_blank" rel="noopener">Toolbar</a>
+          </li>
+          <li>
+              <a class="as-toolbar__item" href="https://carto.com/developers" target="_blank" rel="noopener">Docs</a>
+          </li>
+          <li>
+              <a class="as-toolbar__item" href="https://cartodb.github.io/airship/packages/icons/examples/" target="_blank" rel="noopener">
+                <i class="as-icon-points"></i>
+              </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- <div class="as-content"> -->
+    <as-responsive-content>
+      <main class="as-main">
+        <div class="as-map-area">
+          <div id="map"></div>
+        </div>
+      </main>
+      <aside class="as-sidebar as-sidebar--left" data-name="Sidebar" data-tab-order="3">
+        <div class="as-container as-container--scrollable">
+          <div class="as-box">
+            <as-switch id="darkSwitch" label="Dark basemap" checked ></as-switch>
+            <h4 class="as-header as-font--medium">Change point size</h4>
+            <as-range-slider
+              id="pointSize"
+              min-value="7"
+              max-value="30"
+              step="1"
+              value="7"
+            ></as-range-slider>
+            <h4 class="as-header as-font--medium">Filter by longitude</h4>
+            <as-range-slider
+              id="longitude"
+              min-value="-180"
+              max-value="180"
+            ></as-range-slider>
+          </div>
+        </div>
+      </aside>
+    </as-responsive-content>
+    <!-- </div> -->
+  </div>
+
+  <!-- Basic CARTO-VL MAP -->
+  <script src="/src/common/map.js"></script>
+  <script>
+    const responsive = document.querySelector('as-responsive-content');
+    const actions = document.querySelector('.as-toolbar__actions');
+    const sizeSlider = document.querySelector('#pointSize');
+    const longitudeSlider = document.querySelector('#longitude');
+    const darkSwitch = document.querySelector('#darkSwitch');
+
+    longitudeSlider.range = [-180, 180];
+
+    longitudeSlider.formatValue = (value) => `${value}º`;
+
+    document.querySelector('#logo').addEventListener('click', () => {
+      actions.classList.toggle('as-toolbar__actions--visible')
+    });
+
+    responsive.addEventListener('ready', function () {
+      const layer = loadMap();
+
+      layer.on('loaded', function () {
+        sizeSlider.addEventListener('change', (event) => {
+          const newValue = event.detail[0];
+          layer.viz.width.blendTo(newValue);
+        });
+
+        longitudeSlider.addEventListener('change', (event) => {
+          const newRange = event.detail;
+
+          layer.viz.filter.blendTo(`between($longitude, ${newRange[0]}, ${newRange[1]})`)
+        });
+
+        darkSwitch.addEventListener('change', (event) => {
+          const darkMode = event.detail;
+          if (darkMode) {
+            layer.map.setStyle('https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json');
+          } else {
+            layer.map.setStyle('https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json');
+          }
+        });
+      });
+
+    });
+  </script>
+</body>
+
+</html>
