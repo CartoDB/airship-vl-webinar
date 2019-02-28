@@ -1,0 +1,22 @@
+{
+  "name": "airship-vl-webinar",
+  "version": "0.0.0",
+  "description": "A Collection of Examples with VL & Airship",
+  "main": "index.js",
+  "scripts": {
+    "serve": "serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CartoDB/airship-vl-webinar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CartoDB/airship-vl-webinar/issues"
+  },
+  "homepage": "https://github.com/CartoDB/airship-vl-webinar#readme",
+  "devDependencies": {
+    "serve": "^10.1.2"
+  }
+}

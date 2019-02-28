@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A Map and a toolbar</title>
+  <link rel="stylesheet" href="https://libs.cartocdn.com/airship-style/v1.0.3/airship.css">
+  <link rel="stylesheet" href="https://libs.cartocdn.com/airship-icons/v1.0.3/icons.css">
+  <script src="https://libs.cartocdn.com/airship-components/v1.0.3/airship.js"></script>
+  <!-- Include Mapbox GL JS -->
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js"></script>
+  <!-- Include Mapbox GL CSS -->
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css" rel="stylesheet" />
+  <!-- Include CARTO VL -->
+  <script src="https://libs.cartocdn.com/carto-vl/v1.1.1/carto-vl.js"></script> 
+</head>
+
+<body class="as-app-body">
+  <div class="as-app">
+    <header class="as-toolbar">
+      <div class="as-toolbar__item">
+        <img id="logo" src="/src/common/logo.svg" />
+      </div>
+
+      <nav class="as-toolbar__actions">
+        <ul>
+          <li>
+              <a class="as-toolbar__item" href="https://carto.com/developers/airship/reference/#/layout/toolbar" target="_blank" rel="noopener">Toolbar</a>
+          </li>
+          <li>
+              <a class="as-toolbar__item" href="https://carto.com/developers" target="_blank" rel="noopener">Docs</a>
+          </li>
+          <li>
+              <a class="as-toolbar__item" href="https://cartodb.github.io/airship/packages/icons/examples/" target="_blank" rel="noopener">
+                <i class="as-icon-points"></i>
+              </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- <div class="as-content"> -->
+    <as-responsive-content>
+      <main class="as-main">
+        <div class="as-map-area">
+          <div id="map"></div>
+          <div class="as-map-panels" data-name="Panels" data-tab-order="1">
+            <div class="as-panel as-panel--top as-panel--left">
+              <div class="as-panel__element as-p--16">
+                <p class="as-body">
+                  <a href="https://carto.com/developers/airship/reference/#/layout/panels" target="_blank" rel="noopener">Panels</a> are great for legends</p>
+              </div>
+            </div>
+            <div class="as-panel as-panel--top as-panel--right">
+              <div class="as-panel__element as-p--16">
+                <p class="as-body">And for overlaying information</p>
+              </div>
+            </div>
+          </div>
+          <footer class="as-map-footer" data-name="Footer" data-tab-order="2">
+            <div class="as-container">
+              <div class="as-box">
+                <h4 class="as-subheader as-font--medium">Footer</h4>
+                <p class="as-body">
+                  You can adjust its height freely
+                </p>
+                <p class="as-body">
+                  It hides on small viewports as well as the sidebar, but you can make it visible with the class <span class="as-font--mono">as-map-footer--visible</span>
+                </p>
+                <p class="as-body">
+                  Check out <a href="https://carto.com/developers/airship/reference/#/layout/footer" target="_blank" rel="noopener">the docs</a>
+                </p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </main>
+      <aside class="as-sidebar as-sidebar--left" data-name="Sidebar" data-tab-order="3">
+        <div class="as-container">
+          <div class="as-box">
+            <h4 class="as-subheader as-font--medium">Sidebar</h4>
+            <p class="as-body">
+              This sidebar can live on either side of the layout (left or right). You can even have both!
+            </p>
+            <p class="as-body">
+              You can adjust its size freely or use the helper classes <span class="as-font--mono">as-sidebar--l as-sidebar--xl</span>
+            </p>
+            <p class="as-body">
+              It hides on small screens, but you can make it visible with the class <span class="as-font--mono">as-sidebar--visible</span>
+            </p>
+            <p class="as-body">
+              Be sure to check out <a href="https://carto.com/developers/airship/reference/#/layout/sidebar" target="_blank" rel="noopener">the docs</a>
+            </p>
+          </div>
+        </div>
+        <div class="as-container as-container--scrollable">
+          <div class="as-box">
+            <h4 class="as-subheader as-font--medium">Sidebar Scrollable Content</h4>
+            <p class="as-body">
+              There are several ways of distributing content on the sidebar
+            </p>
+            <p class="as-body">
+              Check <a href="" target="_blank" rel="noopener">the docs</a>
+            </p>
+          </div>
+        </div>
+      </aside>
+    </as-responsive-content>
+    <!-- </div> -->
+  </div>
+
+  <!-- Basic CARTO-VL MAP -->
+  <script src="/src/common/map.js"></script>
+  <script>
+    const responsive = document.querySelector('as-responsive-content');
+    const actions = document.querySelector('.as-toolbar__actions');
+
+
+    document.querySelector('#logo').addEventListener('click', () => {
+      actions.classList.toggle('as-toolbar__actions--visible')
+    });
+
+    responsive.addEventListener('ready', loadMap);
+  </script>
+</body>
+
+</html>

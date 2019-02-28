@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Just a map</title>
+  <link rel="stylesheet" href="https://libs.cartocdn.com/airship-style/v1.0.3/airship.css">
+  <!-- Include Mapbox GL JS -->
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js"></script>
+  <!-- Include Mapbox GL CSS -->
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://libs.cartocdn.com/carto-vl/v1.1.1/carto-vl.js"></script> 
+</head>
+
+<body class="as-app-body">
+  <div class="as-app">
+    <div class="as-content">
+      <main class="as-main">
+        <div class="as-map-area">
+          <div id="map"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Basic CARTO-VL MAP -->
+  <script src="/src/common/map.js"></script>
+  <script>
+    loadMap();
+  </script>
+</body>
+
+</html>
