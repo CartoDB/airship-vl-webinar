@@ -1,7 +1,7 @@
 function loadMap() {
   const map = new mapboxgl.Map({
     container: 'map',
-    style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+    style: carto.basemaps.darkmatter,
     center: [0, 30],
     zoom: 2,
     scrollZoom: true,
