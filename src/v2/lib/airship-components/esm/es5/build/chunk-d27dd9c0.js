@@ -1,0 +1,1 @@
+import{h}from"../airship.core.js";function contentFragment(t,n,e,o,a,s,r){return t?h("as-loader",{class:o?"content as-pb--36":"content as-pb--20"}):n?h("p",{class:"content as-body"},a||"Unexpected error"):e?h("p",{class:"content as-body"},s):r}export{contentFragment as a};

@@ -1,0 +1,77 @@
+as-infowindow {
+  --as--infowindow--color--background: var(--as--color--ui-01, #FFF);
+  --as--infowindow--color--shadow: var(--as--color--shadow, rgba(44, 44, 44, 0.16));
+  display: inline-block; }
+  as-infowindow .as-infowindow {
+    display: inline-block;
+    position: relative;
+    z-index: 3;
+    width: 260px;
+    border-radius: 4px 4px 4px 0;
+    background: var(--as--infowindow--color--background);
+    box-shadow: 0 4px 16px 0 var(--as--infowindow--color--shadow); }
+    as-infowindow .as-infowindow img {
+      display: block;
+      width: 100%;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px; }
+    as-infowindow .as-infowindow__media {
+      overflow: hidden;
+      border-radius: 4px 4px 4px 0; }
+    as-infowindow .as-infowindow__content {
+      height: 100%;
+      padding: 16px;
+      overflow: auto; }
+    as-infowindow .as-infowindow__hook {
+      position: absolute;
+      z-index: 10;
+      bottom: 1px;
+      left: 0;
+      background: var(--as--infowindow--color--background); }
+      as-infowindow .as-infowindow__hook::before {
+        content: '';
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-top: 12px solid var(--as--infowindow--color--background);
+        border-right: 18px solid transparent;
+        border-radius: 0 0 0 4px; }
+      as-infowindow .as-infowindow__hook::after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 3px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-top: 12px solid var(--as--infowindow--color--shadow);
+        border-right: 18px solid transparent;
+        filter: blur(2px); }
+    as-infowindow .as-infowindow__imageHook {
+      position: absolute;
+      z-index: 10;
+      bottom: 0; }
+      as-infowindow .as-infowindow__imageHook::after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 3px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-top: 12px solid var(--as--infowindow--color--shadow);
+        border-right: 18px solid transparent;
+        filter: blur(2px); }
+    as-infowindow .as-infowindow__imageHook--inner {
+      position: absolute;
+      z-index: 3;
+      top: -1px;
+      width: 18px;
+      height: 12px;
+      overflow: hidden;
+      clip-path: polygon(0 0, 0% 100%, 100% 0); }
+      as-infowindow .as-infowindow__imageHook--inner > img {
+        width: 260px; }

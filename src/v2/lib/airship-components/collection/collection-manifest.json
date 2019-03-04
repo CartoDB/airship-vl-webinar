@@ -1,0 +1,1200 @@
+{
+  "components": [
+    {
+      "tag": "as-category-widget",
+      "dependencies": [
+        "as-loader",
+        "as-widget-header",
+        "as-widget-selection"
+      ],
+      "componentClass": "CategoryWidget",
+      "componentPath": "components/as-category-widget/as-category-widget.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/as-category-widget/as-category-widget.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "categories",
+          "attr": "categories"
+        },
+        {
+          "name": "defaultBarColor",
+          "type": "String",
+          "attr": "default-bar-color"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "attr": "description"
+        },
+        {
+          "name": "disableInteractivity",
+          "type": "Boolean",
+          "attr": "disable-interactivity"
+        },
+        {
+          "name": "error",
+          "type": "String",
+          "attr": "error"
+        },
+        {
+          "name": "errorDescription",
+          "type": "String",
+          "attr": "error-description"
+        },
+        {
+          "name": "heading",
+          "type": "String",
+          "attr": "heading"
+        },
+        {
+          "name": "isLoading",
+          "type": "Boolean",
+          "attr": "is-loading"
+        },
+        {
+          "name": "noDataBodyMessage",
+          "type": "String",
+          "attr": "no-data-body-message"
+        },
+        {
+          "name": "noDataHeaderMessage",
+          "type": "String",
+          "attr": "no-data-header-message"
+        },
+        {
+          "name": "showClearButton",
+          "type": "Boolean",
+          "attr": "show-clear-button"
+        },
+        {
+          "name": "showHeader",
+          "type": "Boolean",
+          "attr": "show-header"
+        },
+        {
+          "name": "useTotalPercentage",
+          "type": "Boolean",
+          "attr": "use-total-percentage"
+        },
+        {
+          "name": "valueFormatter",
+          "attr": "value-formatter"
+        },
+        {
+          "name": "visibleCategories",
+          "type": "Number",
+          "attr": "visible-categories"
+        }
+      ],
+      "states": [
+        {
+          "name": "selectedCategories"
+        }
+      ],
+      "methods": [
+        {
+          "name": "clearSelection"
+        },
+        {
+          "name": "getSelectedCategories"
+        }
+      ],
+      "events": [
+        {
+          "event": "categoriesSelected"
+        }
+      ]
+    },
+    {
+      "tag": "as-dropdown",
+      "dependencies": [],
+      "componentClass": "Dropdown",
+      "componentPath": "components/as-dropdown/as-dropdown.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/as-dropdown/as-dropdown.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "defaultText",
+          "type": "String",
+          "attr": "default-text"
+        },
+        {
+          "name": "onClickOutside",
+          "attr": "on-click-outside",
+          "watch": [
+            "onClickOutsideChanged"
+          ]
+        },
+        {
+          "name": "options",
+          "attr": "options",
+          "watch": [
+            "onOptionsChanged"
+          ]
+        },
+        {
+          "name": "selectedOption",
+          "type": "String",
+          "mutable": true,
+          "attr": "selected-option",
+          "watch": [
+            "onSelectionChanged"
+          ]
+        },
+        {
+          "name": "showClearButton",
+          "type": "Boolean",
+          "attr": "show-clear-button"
+        }
+      ],
+      "states": [
+        {
+          "name": "isOpen"
+        },
+        {
+          "name": "selectedOptionObject"
+        }
+      ],
+      "methods": [
+        {
+          "name": "closeList"
+        }
+      ],
+      "events": [
+        {
+          "event": "optionChanged"
+        }
+      ]
+    },
+    {
+      "tag": "as-histogram-widget",
+      "dependencies": [
+        "as-loader",
+        "as-widget-header",
+        "as-widget-selection"
+      ],
+      "componentClass": "HistogramWidget",
+      "componentPath": "components/as-histogram-widget/as-histogram-widget.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/as-histogram-widget/as-histogram-widget.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "axisFormatter",
+          "attr": "axis-formatter"
+        },
+        {
+          "name": "backgroundData",
+          "attr": "background-data",
+          "watch": [
+            "_onBackgroundDataChanged"
+          ]
+        },
+        {
+          "name": "clearText",
+          "type": "String",
+          "attr": "clear-text"
+        },
+        {
+          "name": "color",
+          "type": "String",
+          "attr": "color",
+          "watch": [
+            "_onColorChanged"
+          ]
+        },
+        {
+          "name": "colorRange",
+          "attr": "color-range"
+        },
+        {
+          "name": "data",
+          "attr": "data",
+          "watch": [
+            "_onDataChanged"
+          ]
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "attr": "description"
+        },
+        {
+          "name": "disableAnimation",
+          "type": "Boolean",
+          "attr": "disable-animation"
+        },
+        {
+          "name": "disableInteractivity",
+          "type": "Boolean",
+          "attr": "disable-interactivity"
+        },
+        {
+          "name": "error",
+          "type": "String",
+          "attr": "error"
+        },
+        {
+          "name": "errorDescription",
+          "type": "String",
+          "attr": "error-description"
+        },
+        {
+          "name": "heading",
+          "type": "String",
+          "attr": "heading"
+        },
+        {
+          "name": "isLoading",
+          "type": "Boolean",
+          "attr": "is-loading"
+        },
+        {
+          "name": "noDataBodyMessage",
+          "type": "String",
+          "attr": "no-data-body-message"
+        },
+        {
+          "name": "noDataHeaderMessage",
+          "type": "String",
+          "attr": "no-data-header-message"
+        },
+        {
+          "name": "range",
+          "attr": "range"
+        },
+        {
+          "name": "responsive",
+          "type": "Boolean",
+          "attr": "responsive"
+        },
+        {
+          "name": "selectedFormatter",
+          "attr": "selected-formatter"
+        },
+        {
+          "name": "showClear",
+          "type": "Boolean",
+          "attr": "show-clear"
+        },
+        {
+          "name": "showHeader",
+          "type": "Boolean",
+          "attr": "show-header"
+        },
+        {
+          "name": "tooltipFormatter",
+          "attr": "tooltip-formatter"
+        },
+        {
+          "name": "unselectedColor",
+          "type": "String",
+          "attr": "unselected-color",
+          "watch": [
+            "_onSelectedColorChanged"
+          ]
+        },
+        {
+          "name": "xAxisOptions",
+          "attr": "x-axis-options"
+        },
+        {
+          "name": "xLabel",
+          "type": "String",
+          "attr": "x-label"
+        },
+        {
+          "name": "yAxisOptions",
+          "attr": "y-axis-options"
+        },
+        {
+          "name": "yLabel",
+          "type": "String",
+          "attr": "y-label"
+        }
+      ],
+      "states": [
+        {
+          "name": "isCategoricalData"
+        },
+        {
+          "name": "selectionEmpty"
+        },
+        {
+          "name": "selectionFooter"
+        },
+        {
+          "name": "tooltip"
+        }
+      ],
+      "methods": [
+        {
+          "name": "clearSelection"
+        },
+        {
+          "name": "defaultFormatter"
+        },
+        {
+          "name": "getSelection"
+        },
+        {
+          "name": "setSelection"
+        },
+        {
+          "name": "xFormatter"
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      },
+      "events": [
+        {
+          "event": "drawParametersChanged"
+        },
+        {
+          "event": "selectionChanged"
+        },
+        {
+          "event": "selectionInput"
+        }
+      ]
+    },
+    {
+      "tag": "as-infowindow",
+      "dependencies": [],
+      "componentClass": "Infowindow",
+      "componentPath": "components/as-infowindow/as-infowindow.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/as-infowindow/as-infowindow.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "src",
+          "type": "String",
+          "attr": "src"
+        }
+      ],
+      "hostElement": {
+        "name": "element"
+      }
+    },
+    {
+      "tag": "as-legend",
+      "dependencies": [],
+      "componentClass": "Legend",
+      "componentPath": "components/common/as-legend/as-legend.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/common/as-legend/as-legend.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "data",
+          "attr": "data"
+        }
+      ]
+    },
+    {
+      "tag": "as-loader",
+      "dependencies": [],
+      "componentClass": "Loader",
+      "componentPath": "components/common/as-loader/as-loader.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/common/as-loader/as-loader.scss"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "as-range-slider",
+      "dependencies": [
+        "as-range-slider-bar",
+        "as-range-slider-thumb"
+      ],
+      "componentClass": "RangeSlider",
+      "componentPath": "components/as-range-slider/slider/as-range-slider.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/as-range-slider/slider/as-range-slider.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "disabled",
+          "type": "Boolean",
+          "attr": "disabled"
+        },
+        {
+          "name": "draggable",
+          "type": "Boolean",
+          "attr": "draggable"
+        },
+        {
+          "name": "formatValue",
+          "attr": "format-value"
+        },
+        {
+          "name": "maxValue",
+          "type": "Number",
+          "attr": "max-value"
+        },
+        {
+          "name": "minValue",
+          "type": "Number",
+          "attr": "min-value"
+        },
+        {
+          "name": "range",
+          "attr": "range",
+          "watch": [
+            "validateRange"
+          ]
+        },
+        {
+          "name": "step",
+          "type": "Number",
+          "attr": "step"
+        },
+        {
+          "name": "value",
+          "type": "Number",
+          "attr": "value",
+          "watch": [
+            "validateValue"
+          ]
+        }
+      ],
+      "states": [
+        {
+          "name": "thumbs"
+        }
+      ],
+      "events": [
+        {
+          "event": "change"
+        },
+        {
+          "event": "changeEnd"
+        },
+        {
+          "event": "changeStart"
+        }
+      ]
+    },
+    {
+      "tag": "as-range-slider-bar",
+      "dependencies": [],
+      "componentClass": "RangeSliderBar",
+      "componentPath": "components/as-range-slider/track/as-range-slider-bar.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/as-range-slider/track/as-range-slider-bar.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "disabled",
+          "type": "Boolean",
+          "attr": "disabled"
+        },
+        {
+          "name": "draggable",
+          "type": "Boolean",
+          "attr": "draggable"
+        },
+        {
+          "name": "rangeEndPercentage",
+          "type": "Number",
+          "mutable": true,
+          "attr": "range-end-percentage"
+        },
+        {
+          "name": "rangeStartPercentage",
+          "type": "Number",
+          "mutable": true,
+          "attr": "range-start-percentage"
+        },
+        {
+          "name": "stepPercentage",
+          "type": "Number",
+          "attr": "step-percentage"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "mousedown",
+          "method": "onMouseDown",
+          "capture": false
+        },
+        {
+          "event": "touchstart",
+          "method": "onMouseDown",
+          "capture": false
+        }
+      ],
+      "hostElement": {
+        "name": "element"
+      },
+      "events": [
+        {
+          "event": "barChangeEnd"
+        },
+        {
+          "event": "barChangeStart"
+        },
+        {
+          "event": "barMove"
+        }
+      ]
+    },
+    {
+      "tag": "as-range-slider-thumb",
+      "dependencies": [],
+      "componentClass": "RangeSliderThumb",
+      "componentPath": "components/as-range-slider/thumb/as-range-slider-thumb.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/as-range-slider/thumb/as-range-slider-thumb.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "disabled",
+          "type": "Boolean",
+          "attr": "disabled"
+        },
+        {
+          "name": "formatValue",
+          "attr": "format-value"
+        },
+        {
+          "name": "percentage",
+          "type": "Number",
+          "attr": "percentage"
+        },
+        {
+          "name": "value",
+          "type": "Number",
+          "attr": "value"
+        },
+        {
+          "name": "valueMax",
+          "type": "Number",
+          "attr": "value-max"
+        },
+        {
+          "name": "valueMin",
+          "type": "Number",
+          "attr": "value-min"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "keydown",
+          "method": "onKeyDown",
+          "passive": false,
+          "capture": false
+        },
+        {
+          "event": "mousedown",
+          "method": "onMouseDown",
+          "capture": false
+        },
+        {
+          "event": "touchstart",
+          "method": "onMouseDown",
+          "capture": false
+        }
+      ],
+      "hostElement": {
+        "name": "element"
+      },
+      "events": [
+        {
+          "event": "thumbChangeEnd"
+        },
+        {
+          "event": "thumbChangeStart"
+        },
+        {
+          "event": "thumbDecrease"
+        },
+        {
+          "event": "thumbIncrease"
+        },
+        {
+          "event": "thumbMove"
+        }
+      ]
+    },
+    {
+      "tag": "as-responsive-content",
+      "dependencies": [],
+      "componentClass": "ResponsiveContent",
+      "componentPath": "components/as-responsive-content/as-responsive-content.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/as-responsive-content/as-responsive-content.scss"
+          ]
+        }
+      },
+      "states": [
+        {
+          "name": "sections"
+        }
+      ],
+      "methods": [
+        {
+          "name": "getSections"
+        },
+        {
+          "name": "setVisible"
+        }
+      ],
+      "hostElement": {
+        "name": "element"
+      },
+      "events": [
+        {
+          "event": "ready"
+        },
+        {
+          "event": "sectionChange"
+        }
+      ]
+    },
+    {
+      "tag": "as-stacked-bar-widget",
+      "dependencies": [
+        "as-legend",
+        "as-loader",
+        "as-widget-header"
+      ],
+      "componentClass": "StackedBarWidget",
+      "componentPath": "components/as-stacked-bar-widget/as-stacked-bar-widget.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/as-stacked-bar-widget/as-stacked-bar-widget.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "data",
+          "attr": "data",
+          "watch": [
+            "_onDataChanged"
+          ]
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "attr": "description"
+        },
+        {
+          "name": "error",
+          "type": "String",
+          "attr": "error"
+        },
+        {
+          "name": "errorDescription",
+          "type": "String",
+          "attr": "error-description"
+        },
+        {
+          "name": "formatFn",
+          "attr": "format-fn"
+        },
+        {
+          "name": "heading",
+          "type": "String",
+          "attr": "heading"
+        },
+        {
+          "name": "isLoading",
+          "type": "Boolean",
+          "attr": "is-loading"
+        },
+        {
+          "name": "metadata",
+          "attr": "metadata"
+        },
+        {
+          "name": "mouseLeave",
+          "attr": "mouse-leave"
+        },
+        {
+          "name": "mouseOver",
+          "attr": "mouse-over"
+        },
+        {
+          "name": "noDataBodyMessage",
+          "type": "String",
+          "attr": "no-data-body-message"
+        },
+        {
+          "name": "noDataHeaderMessage",
+          "type": "String",
+          "attr": "no-data-header-message"
+        },
+        {
+          "name": "responsive",
+          "type": "Boolean",
+          "attr": "responsive"
+        },
+        {
+          "name": "showLegend",
+          "type": "Boolean",
+          "attr": "show-legend"
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      }
+    },
+    {
+      "tag": "as-switch",
+      "dependencies": [],
+      "componentClass": "Switch",
+      "componentPath": "components/as-switch/as-switch.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/as-switch/as-switch.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "checked",
+          "type": "Boolean",
+          "mutable": true,
+          "reflectToAttr": true,
+          "attr": "checked"
+        },
+        {
+          "name": "disabled",
+          "type": "Boolean",
+          "reflectToAttr": true,
+          "attr": "disabled"
+        },
+        {
+          "name": "label",
+          "type": "String",
+          "attr": "label"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "reflectToAttr": true,
+          "attr": "name"
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      },
+      "events": [
+        {
+          "event": "change"
+        }
+      ]
+    },
+    {
+      "tag": "as-tabs",
+      "dependencies": [],
+      "componentClass": "Tabs",
+      "componentPath": "components/as-tabs/as-tabs.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/as-tabs/as-tabs.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "activeTab",
+          "type": "Number",
+          "mutable": true,
+          "attr": "active-tab"
+        },
+        {
+          "name": "xl",
+          "type": "Boolean",
+          "attr": "xl"
+        }
+      ],
+      "hostElement": {
+        "name": "element"
+      }
+    },
+    {
+      "tag": "as-time-series-widget",
+      "dependencies": [
+        "as-histogram-widget"
+      ],
+      "componentClass": "TimeSeriesWidget",
+      "componentPath": "components/as-time-series-widget/as-time-series-widget.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/as-time-series-widget/as-time-series-widget.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "animated",
+          "type": "Boolean",
+          "reflectToAttr": true,
+          "attr": "animated"
+        },
+        {
+          "name": "backgroundData",
+          "attr": "background-data",
+          "watch": [
+            "onBackgroundDataChanged"
+          ]
+        },
+        {
+          "name": "clearText",
+          "type": "String",
+          "attr": "clear-text"
+        },
+        {
+          "name": "color",
+          "type": "String",
+          "attr": "color"
+        },
+        {
+          "name": "colorRange",
+          "attr": "color-range"
+        },
+        {
+          "name": "data",
+          "attr": "data",
+          "watch": [
+            "onDataChanged"
+          ]
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "attr": "description"
+        },
+        {
+          "name": "disableAnimation",
+          "type": "Boolean",
+          "attr": "disable-animation"
+        },
+        {
+          "name": "disableInteractivity",
+          "type": "Boolean",
+          "attr": "disable-interactivity"
+        },
+        {
+          "name": "error",
+          "type": "String",
+          "attr": "error"
+        },
+        {
+          "name": "errorDescription",
+          "type": "String",
+          "attr": "error-description"
+        },
+        {
+          "name": "heading",
+          "type": "String",
+          "attr": "heading"
+        },
+        {
+          "name": "isLoading",
+          "type": "Boolean",
+          "attr": "is-loading"
+        },
+        {
+          "name": "noDataBodyMessage",
+          "type": "String",
+          "attr": "no-data-body-message"
+        },
+        {
+          "name": "noDataHeaderMessage",
+          "type": "String",
+          "attr": "no-data-header-message"
+        },
+        {
+          "name": "playing",
+          "type": "Boolean",
+          "attr": "playing"
+        },
+        {
+          "name": "progress",
+          "type": "Number",
+          "attr": "progress",
+          "watch": [
+            "onProgressChanged"
+          ]
+        },
+        {
+          "name": "range",
+          "attr": "range"
+        },
+        {
+          "name": "responsive",
+          "type": "Boolean",
+          "attr": "responsive"
+        },
+        {
+          "name": "showClear",
+          "type": "Boolean",
+          "attr": "show-clear"
+        },
+        {
+          "name": "showHeader",
+          "type": "Boolean",
+          "attr": "show-header"
+        },
+        {
+          "name": "timeFormat",
+          "type": "String",
+          "attr": "time-format",
+          "watch": [
+            "onTimeFormatChanged"
+          ]
+        },
+        {
+          "name": "timeFormatLocale",
+          "attr": "time-format-locale",
+          "watch": [
+            "onTimeFormatLocaleChanged"
+          ]
+        },
+        {
+          "name": "tooltipFormatter",
+          "attr": "tooltip-formatter"
+        },
+        {
+          "name": "unselectedColor",
+          "type": "String",
+          "attr": "unselected-color"
+        },
+        {
+          "name": "xAxisOptions",
+          "attr": "x-axis-options"
+        },
+        {
+          "name": "xLabel",
+          "type": "String",
+          "attr": "x-label"
+        },
+        {
+          "name": "yAxisOptions",
+          "attr": "y-axis-options"
+        },
+        {
+          "name": "yLabel",
+          "type": "String",
+          "attr": "y-label"
+        }
+      ],
+      "methods": [
+        {
+          "name": "clearSelection"
+        },
+        {
+          "name": "defaultFormatter"
+        },
+        {
+          "name": "getSelection"
+        },
+        {
+          "name": "setSelection"
+        },
+        {
+          "name": "xFormatter"
+        }
+      ],
+      "events": [
+        {
+          "event": "pause"
+        },
+        {
+          "event": "play"
+        },
+        {
+          "event": "seek"
+        },
+        {
+          "event": "selectionChanged"
+        }
+      ]
+    },
+    {
+      "tag": "as-toolbar",
+      "dependencies": [],
+      "componentClass": "Toolbar",
+      "componentPath": "components/as-toolbar/as-toolbar.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/as-toolbar/as-toolbar.scss"
+          ]
+        }
+      },
+      "hostElement": {
+        "name": "element"
+      }
+    },
+    {
+      "tag": "as-widget-header",
+      "dependencies": [],
+      "componentClass": "WidgetHeader",
+      "componentPath": "components/common/as-widget-header/as-widget-header.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/common/as-widget-header/as-widget-header.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "error",
+          "type": "String",
+          "attr": "error"
+        },
+        {
+          "name": "header",
+          "type": "String",
+          "attr": "header"
+        },
+        {
+          "name": "isEmpty",
+          "type": "Boolean",
+          "attr": "is-empty"
+        },
+        {
+          "name": "isLoading",
+          "type": "Boolean",
+          "attr": "is-loading"
+        },
+        {
+          "name": "noDataMessage",
+          "type": "String",
+          "attr": "no-data-message"
+        },
+        {
+          "name": "subheader",
+          "type": "String",
+          "attr": "subheader"
+        }
+      ]
+    },
+    {
+      "tag": "as-widget-selection",
+      "dependencies": [],
+      "componentClass": "WidgetSelection",
+      "componentPath": "components/common/as-widget-selection/as-widget-selection.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/common/as-widget-selection/as-widget-selection.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "clearText",
+          "type": "String",
+          "attr": "clear-text"
+        },
+        {
+          "name": "selection",
+          "type": "String",
+          "attr": "selection"
+        },
+        {
+          "name": "showClear",
+          "type": "Boolean",
+          "attr": "show-clear"
+        }
+      ],
+      "events": [
+        {
+          "event": "clear"
+        }
+      ]
+    },
+    {
+      "tag": "as-y-axis",
+      "dependencies": [],
+      "componentClass": "YAxis",
+      "componentPath": "components/common/y-axis/as-y-axis.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/common/y-axis/as-y-axis.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "from",
+          "type": "Number",
+          "attr": "from"
+        },
+        {
+          "name": "responsive",
+          "type": "Boolean",
+          "attr": "responsive"
+        },
+        {
+          "name": "to",
+          "type": "Number",
+          "attr": "to"
+        }
+      ],
+      "hostElement": {
+        "name": "element"
+      }
+    }
+  ],
+  "collections": [],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "0.16.1",
+    "typescriptVersion": "3.1.6"
+  },
+  "bundles": []
+}

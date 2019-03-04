@@ -1,0 +1,5 @@
+/*!
+* Airship Styles · CARTO · https://carto.com
+* 2019-03-04T11:15:41.317Z
+*/
+.as-loading{--as--loading--stroke-color: var(--as--color--type-01, #2C2C2C);display:inline-flex;width:40px;height:40px;overflow:hidden}.as-loading svg{width:100%;animation:rotate 2s linear infinite}.as-loading circle{animation:dash 1.5s ease-in-out infinite;stroke-width:4px;stroke-linecap:square;stroke-dasharray:90, 150;stroke-dashoffset:0;stroke:var(--as--loading--stroke-color)}.as-loading--s{width:16px;height:16px}.as-loading--l{width:72px;height:72px}@keyframes dash{0%{stroke-dasharray:1, 150;stroke-dashoffset:0}50%{stroke-dasharray:90, 150;stroke-dashoffset:-35}100%{stroke-dasharray:90, 150;stroke-dashoffset:-124}}@keyframes rotate{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}

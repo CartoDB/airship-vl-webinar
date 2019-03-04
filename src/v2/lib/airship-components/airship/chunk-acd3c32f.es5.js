@@ -1,0 +1,1 @@
+airship.loadBundle("chunk-acd3c32f.js",["exports"],function(t){window,t.readableNumber=function(t){var e=Math.abs(Math.ceil(100*t)/100);if(e>=1e9)return((e/1e9).toFixed(1)+"G").padStart(5);if(e>=1e6)return((e/1e6).toFixed(1)+"M").padStart(5);if(e>=1e3)return((e/1e3).toFixed(1)+"K").padStart(5);var a=""+e;return a.padStart(6+Math.abs(a.length-3))}});

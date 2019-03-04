@@ -1,0 +1,29 @@
+/*!
+* Airship Styles · CARTO · https://carto.com
+* 2019-03-04T11:15:41.317Z
+*/
+.as-modal {
+  --as--modal--background-color: var(--as--color--modal, rgba(44, 44, 44, 0.8));
+  --as--modal--content--background-color: var(--as--color--ui-01, #FFF);
+  display: flex;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  background: var(--as--modal--background-color); }
+  .as-modal__content {
+    position: relative;
+    max-width: 450px;
+    max-height: 80vh;
+    padding: 40px;
+    border-radius: 4px;
+    background: var(--as--modal--content--background-color);
+    box-shadow: 0 2px 8px 0 var(--as--color--shadow, rgba(44, 44, 44, 0.16)); }
+  .as-modal--hidden {
+    display: none; }
+    .as-modal--hidden__content {
+      display: none; }

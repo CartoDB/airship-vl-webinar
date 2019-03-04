@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Time Series Widget</title>
+  <link rel="stylesheet" href="./lib/airship-style/airship.css">
+  <link rel="stylesheet" href="./lib/airship-icons/icons.css">
+  <script src="./lib/airship-components/airship.js"></script>
+  <!-- Include Mapbox GL JS -->
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js"></script>
+  <!-- Include Mapbox GL CSS -->
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css" rel="stylesheet" />
+  <!-- Include CARTO VL -->
+  <script src="./lib/carto-vl/carto-vl.js"></script> 
+</head>
+
+<body class="as-app-body">
+  <div class="as-app">
+    <header class="as-toolbar">
+      <div class="as-toolbar__item">
+        <img id="logo" src="/src/common/logo.svg" />
+      </div>
+
+      <nav class="as-toolbar__actions">
+        <ul>
+          <li>
+              <a class="as-toolbar__item" href="https://carto.com/developers/airship/reference/#/layout/toolbar" target="_blank" rel="noopener">Toolbar</a>
+          </li>
+          <li>
+              <a class="as-toolbar__item" href="https://carto.com/developers" target="_blank" rel="noopener">Docs</a>
+          </li>
+          <li>
+              <a class="as-toolbar__item" href="https://cartodb.github.io/airship/packages/icons/examples/" target="_blank" rel="noopener">
+                <i class="as-icon-points"></i>
+              </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- <div class="as-content"> -->
+    <as-responsive-content>
+      <main class="as-main">
+        <div class="as-map-area">
+          <div id="map"></div>
+        </div>
+        <footer class="as-map-footer">
+          <div class="as-box">
+            <as-time-series-widget
+              animated
+              heading='Animation'
+              description='controls'
+              time-format='%Q'
+              show-clear
+            >
+            </as-time-series-widget>
+          </div>
+        </footer>
+      </main>
+    </as-responsive-content>
+    <!-- </div> -->
+  </div>
+
+  <!-- Basic CARTO-VL MAP -->
+  <script>
+    const responsive = document.querySelector('as-responsive-content');
+    const actions = document.querySelector('.as-toolbar__actions');
+
+    document.querySelector('#logo').addEventListener('click', () => {
+      actions.classList.toggle('as-toolbar__actions--visible')
+    });
+
+    responsive.addEventListener('ready', function () {
+        function histogramDiff (a, b) {
+          if (a === null || b === null) {
+            return true;
+          }
+
+          if (a.length !== b.length) {
+            return true;
+          }
+
+          for (let i = 0; i < a.length; i++) {
+            if (a[i].x[0] !== b[i].x[0] || a[i].x[1] !== b[i].x[1] || a[i].y !== b[i].y) {
+              return true;
+            }
+          }
+
+          return false;
+        }
+
+        const map = new mapboxgl.Map({
+          container: 'map',
+          style: carto.basemaps.darkmatter,
+          center: [-4.77, 37.88],
+          zoom: 12
+        });
+
+        carto.setDefaultAuth({
+          username: 'roman-carto',
+          apiKey: 'default_public'
+        });
+
+        const viz = new carto.Viz(`
+          @duration: 30
+          @animation: animation(linear($year, 1900, 2017), @duration, fade(0.1, ${Number.MAX_SAFE_INTEGER}))
+
+          strokeWidth: 0
+
+          filter: @animation
+        `);
+
+        const buckets = [[1918,1923],[1923,1928],[1928,1933],[1933,1938],[1938,1943],[1943,1948],[1948,1953],[1953,1958],[1958,1963],[1963,1968],[1968,1973],[1973,1978],[1978,1983],[1983,1988],[1988,1993],[1993,1998],[1998,2003],[2003,2008],[2008,2013],[2013,2018]];
+
+        const dataViz = new carto.Viz(`
+          @histogram: viewportHistogram($year, 50)
+
+          strokeWidth: 0
+          color: rgba(255,255,255,0)
+          filter: 1
+        `)
+
+        const source = new carto.source.SQL(`with t as (select *, date_part('year', beginning) as year from cordoba_catastro_simple) select * from t where year > 1918 and year < 2018`);
+        const vizLayer = new carto.Layer('layer', source, viz);
+        const dataLayer = new carto.Layer('dataLayer', source, dataViz);
+
+        const timeWidget = document.querySelector('as-time-series-widget');
+        let selection = null;
+
+        timeWidget.addEventListener('selectionChanged', (evt) => {
+          selection = evt.detail === null ? null : evt.detail.map(e => e.getTime());
+
+          if (selection !== null) {
+            viz.variables.animation.input.min.blendTo(selection[0], 0);
+            viz.variables.animation.input.max.blendTo(selection[1], 0);
+          } else {
+            viz.variables.animation.input.min.blendTo(1900, 0);
+            viz.variables.animation.input.max.blendTo(2017, 0);
+          }
+
+          viz.variables.animation.setProgressPct(0);
+        });
+
+        timeWidget.addEventListener('play', () => {
+          viz.variables.animation.play();
+        });
+
+        timeWidget.addEventListener('pause', () => {
+          viz.variables.animation.pause();
+        });
+
+        timeWidget.addEventListener('seek', (evt) => {
+          viz.variables.animation.setProgressPct(evt.detail / 100);
+
+          timeWidget.progress = evt.detail;
+        })
+
+        vizLayer.on('updated', function updateWidgets() {
+          if (!viz.variables.animation._paused) {
+            timeWidget.progress = viz.variables.animation.getProgressPct() * 100;
+          }
+
+          timeWidget.playing = viz.variables.animation._paused === false;
+        });
+
+        let lastData = null;
+        dataLayer.on('updated', () => {
+          const newHistogram = dataViz.variables.histogram.value;
+
+          if (histogramDiff(lastData, newHistogram) && selection === null) {
+            viz.variables.animation.input.min.blendTo(newHistogram[0].x[0])
+            viz.variables.animation.input.max.blendTo(newHistogram[newHistogram.length - 1].x[1])
+            
+            lastData = newHistogram;
+
+            timeWidget.data = newHistogram.map(entry => {
+              return {
+                start: entry.x[0],
+                end: entry.x[1],
+                value: entry.y
+              }
+            });
+          }
+        });
+
+        dataLayer.addTo(map, 'watername_ocean');
+        vizLayer.addTo(map, 'watername_ocean');
+    });
+  </script>
+</body>
+
+</html>

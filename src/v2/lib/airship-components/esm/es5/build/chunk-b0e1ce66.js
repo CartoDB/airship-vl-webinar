@@ -1,0 +1,1 @@
+function redrawChildren(e){for(var r=0,a=e.querySelectorAll("*");r<a.length;r++){var o=a[r];0===o.tagName.toLowerCase().indexOf("as-")&&o.forceUpdate&&o.forceUpdate()}}export{redrawChildren as a};

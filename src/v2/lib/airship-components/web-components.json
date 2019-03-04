@@ -1,0 +1,598 @@
+{
+  "tags": [
+    {
+      "label": "as-category-widget",
+      "description": "Category Widget",
+      "attributes": [
+        {
+          "label": "default-bar-color",
+          "description": "Default color to draw the bars. Default value is `#47DB99`.",
+          "required": false
+        },
+        {
+          "label": "description",
+          "description": "Description text of the widget",
+          "required": false
+        },
+        {
+          "label": "disable-interactivity",
+          "description": "Disable category selection in Widget",
+          "required": false
+        },
+        {
+          "label": "error",
+          "description": "Text shown in the header subtitle when there's an error",
+          "required": false
+        },
+        {
+          "label": "error-description",
+          "description": "Extended error description, only shown when error is present",
+          "required": false
+        },
+        {
+          "label": "heading",
+          "description": "Heading text of the widget",
+          "required": false
+        },
+        {
+          "label": "is-loading",
+          "description": "Boolean property to control the widget loading state. If true, a spinner is shown.",
+          "required": false
+        },
+        {
+          "label": "no-data-body-message",
+          "description": "Message shown in body when no data is available",
+          "required": false
+        },
+        {
+          "label": "no-data-header-message",
+          "description": "Message shown in header when no data is available",
+          "required": false
+        },
+        {
+          "label": "show-clear-button",
+          "description": "If truthy, it'll show a button to clear selected categories when there are any. Default value is `false`.",
+          "required": false
+        },
+        {
+          "label": "show-header",
+          "description": "If truthy, it'll render the heading and component's description. Default value is `true`.",
+          "required": false
+        },
+        {
+          "label": "use-total-percentage",
+          "description": "If truthy, we'll use the sum of all categories' value to render the bar percentage.\nBy default, we use the maximum category value to render the bar percentage.",
+          "required": false
+        },
+        {
+          "label": "visible-categories",
+          "description": "The number of visible categories without aggregation.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "as-dropdown",
+      "description": "Dropdown Widget",
+      "attributes": [
+        {
+          "label": "default-text",
+          "description": "Default text to show when no option is selected",
+          "required": false
+        },
+        {
+          "label": "selected-option",
+          "description": "Selected option to show in the dropdown",
+          "required": false
+        },
+        {
+          "label": "show-clear-button",
+          "description": "Allow the user to clear selected option",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "as-histogram-widget",
+      "description": "Histogram Widget",
+      "attributes": [
+        {
+          "label": "clear-text",
+          "description": "Text rendered inside the clear selection button",
+          "required": false
+        },
+        {
+          "label": "color",
+          "description": "Override color for the histogram bars",
+          "required": false
+        },
+        {
+          "label": "description",
+          "description": "Description of the widget to be displayed",
+          "required": false
+        },
+        {
+          "label": "disable-animation",
+          "description": "This lets you disable the animations for the bars when showing / updating the data",
+          "required": false
+        },
+        {
+          "label": "disable-interactivity",
+          "description": "Disables selection brushes and events for the widget",
+          "required": false
+        },
+        {
+          "label": "error",
+          "description": "Use this widget to put the widget in \"error mode\".\nWhen error mode is active. The header will display the given text.\nAnd the body will be display the errorDescription instead any data.",
+          "required": false
+        },
+        {
+          "label": "error-description",
+          "description": "Extended error description, only shown when error is present",
+          "required": false
+        },
+        {
+          "label": "heading",
+          "description": "Title of the widget to be displayed",
+          "required": false
+        },
+        {
+          "label": "is-loading",
+          "description": "Use this attribute to put the widget in \"loading mode\".\nWhen loading mode is active, a spinner will be shown and the data will be hidden.",
+          "required": false
+        },
+        {
+          "label": "no-data-body-message",
+          "description": "Message shown in body when no data is available",
+          "required": false
+        },
+        {
+          "label": "no-data-header-message",
+          "description": "Message shown in header when no data is available",
+          "required": false
+        },
+        {
+          "label": "responsive",
+          "description": "Use this attribute to decide if the widget should be rerendered on window resize.\nDefaults to true.",
+          "required": false
+        },
+        {
+          "label": "show-clear",
+          "description": "Display a clear button that clears the histogram selection.",
+          "required": false
+        },
+        {
+          "label": "show-header",
+          "description": "Toggles displaying title and description",
+          "required": false
+        },
+        {
+          "label": "unselected-color",
+          "description": "Override color for the non selected histogram bars",
+          "required": false
+        },
+        {
+          "label": "x-label",
+          "description": "Label the x axis of the histogram with the given string.",
+          "required": false
+        },
+        {
+          "label": "y-label",
+          "description": "Label the y axis of the histogram with the given string.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "as-infowindow",
+      "description": "",
+      "attributes": [
+        {
+          "label": "src",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "as-range-slider",
+      "description": "",
+      "attributes": [
+        {
+          "label": "disabled",
+          "description": "Disables component if truthy",
+          "required": false
+        },
+        {
+          "label": "draggable",
+          "description": "If this property is set to true, and it has multiple value, you can drag the entire track.",
+          "required": false
+        },
+        {
+          "label": "max-value",
+          "description": "Top limit of the range.\nYou cannot drag your slider beyond this value. By default the value is 10.",
+          "required": false
+        },
+        {
+          "label": "min-value",
+          "description": "Bottom limit of the range.\nYou cannot drag your slider below this value. By default the value is 0.",
+          "required": false
+        },
+        {
+          "label": "step",
+          "description": "Increment/decrement step of the slider.\nYou can change the step setting a different number to this property. Defaults to 1.",
+          "required": false
+        },
+        {
+          "label": "value",
+          "description": "Initial value.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "as-range-slider-thumb",
+      "description": "",
+      "attributes": [
+        {
+          "label": "disabled",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "percentage",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "value",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "value-max",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "value-min",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "as-range-slider-bar",
+      "description": "",
+      "attributes": [
+        {
+          "label": "disabled",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "draggable",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "range-end-percentage",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "range-start-percentage",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "step-percentage",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "as-responsive-content",
+      "description": "Category Widget",
+      "attributes": []
+    },
+    {
+      "label": "as-stacked-bar-widget",
+      "description": "Stacked bar Widget",
+      "attributes": [
+        {
+          "label": "description",
+          "description": "Description of the widget to be displayed",
+          "required": false
+        },
+        {
+          "label": "error",
+          "description": "Use this attribute to put the widget in \"error mode\".\nWhen this attribute is given, its text will be shown in the subheader and the widget content won't be displayed.",
+          "required": false
+        },
+        {
+          "label": "error-description",
+          "description": "Extended error description, only shown when error is present",
+          "required": false
+        },
+        {
+          "label": "heading",
+          "description": "Header of the widget to be displayed",
+          "required": false
+        },
+        {
+          "label": "is-loading",
+          "description": "Use this attribute to put the widget in \"loading mode\".\nWhen this attribute is true, the widget won't show any data, a spinner will be placed instead.",
+          "required": false
+        },
+        {
+          "label": "no-data-body-message",
+          "description": "Message shown in body when no data is available",
+          "required": false
+        },
+        {
+          "label": "no-data-header-message",
+          "description": "Message shown in header when no data is available",
+          "required": false
+        },
+        {
+          "label": "responsive",
+          "description": "Use this attribute to decide if the widget should be rerendered on window resize.\nDefaults to true.",
+          "required": false
+        },
+        {
+          "label": "show-legend",
+          "description": "Boolean flag to control legend visibility.\nDefaults: true",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "as-switch",
+      "description": "",
+      "attributes": [
+        {
+          "label": "checked",
+          "description": "Boolean flag to control if the input is checked or not",
+          "required": false
+        },
+        {
+          "label": "disabled",
+          "description": "Boolean flag to control when the switch is disabled or not",
+          "required": false
+        },
+        {
+          "label": "label",
+          "description": "Input label",
+          "required": false
+        },
+        {
+          "label": "name",
+          "description": "The input name",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "as-tabs",
+      "description": "As Tabs",
+      "attributes": [
+        {
+          "label": "active-tab",
+          "description": "Index of the active tab. Defaults to 0",
+          "required": false
+        },
+        {
+          "label": "xl",
+          "description": "Make the tabs XL",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "as-time-series-widget",
+      "description": "Time series",
+      "attributes": [
+        {
+          "label": "animated",
+          "description": "Whether it should have animated properties or not. Disabling this makes this look\nlike a histogra widget with time capabilities",
+          "required": false
+        },
+        {
+          "label": "clear-text",
+          "description": "Text rendered inside the clear selection button",
+          "required": false
+        },
+        {
+          "label": "color",
+          "description": "Override color for the histogram bars",
+          "required": false
+        },
+        {
+          "label": "description",
+          "description": "Description of the widget to be displayed",
+          "required": false
+        },
+        {
+          "label": "disable-animation",
+          "description": "This lets you disable the animations for the bars when showing / updating the data",
+          "required": false
+        },
+        {
+          "label": "disable-interactivity",
+          "description": "Disables selection brushes and events for the widget",
+          "required": false
+        },
+        {
+          "label": "error",
+          "description": "Use this widget to put the widget in \"error mode\".\nWhen error mode is active. The header will display the given text.\nAnd the body will be display the errorDescription instead any data.",
+          "required": false
+        },
+        {
+          "label": "error-description",
+          "description": "Extended error description, only shown when error is present",
+          "required": false
+        },
+        {
+          "label": "heading",
+          "description": "Title of the widget to be displayed",
+          "required": false
+        },
+        {
+          "label": "is-loading",
+          "description": "Use this attribute to put the widget in \"loading mode\".\nWhen loading mode is active, a spinner will be shown and the data will be hidden.",
+          "required": false
+        },
+        {
+          "label": "no-data-body-message",
+          "description": "Message shown in body when no data is available",
+          "required": false
+        },
+        {
+          "label": "no-data-header-message",
+          "description": "Message shown in header when no data is available",
+          "required": false
+        },
+        {
+          "label": "playing",
+          "description": "Whether the animation is playing or not.",
+          "required": false
+        },
+        {
+          "label": "progress",
+          "description": "This attribute is the percentage of progress elapsed on an animation.",
+          "required": false
+        },
+        {
+          "label": "responsive",
+          "description": "Use this attribute to decide if the widget should be rerendered on window resize.\nDefaults to true.",
+          "required": false
+        },
+        {
+          "label": "show-clear",
+          "description": "Display a clear button that clears the histogram selection.",
+          "required": false
+        },
+        {
+          "label": "show-header",
+          "description": "Toggles displaying title and description",
+          "required": false
+        },
+        {
+          "label": "time-format",
+          "description": "This string will be parsed by d3-time-format (https://github.com/d3/d3-time-format)\nand will be used to format the graph's x-axis",
+          "required": false
+        },
+        {
+          "label": "unselected-color",
+          "description": "Override color for the selected histogram bars",
+          "required": false
+        },
+        {
+          "label": "x-label",
+          "description": "Label the x axis of the histogram with the given string.",
+          "required": false
+        },
+        {
+          "label": "y-label",
+          "description": "Label the y axis of the histogram with the given string.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "as-toolbar",
+      "description": "Toolbar",
+      "attributes": []
+    },
+    {
+      "label": "as-legend",
+      "description": "Helper class to draw the vertical axis on some widgets.",
+      "attributes": []
+    },
+    {
+      "label": "as-loader",
+      "description": "Helper class to draw the vertical axis on some widgets.",
+      "attributes": []
+    },
+    {
+      "label": "as-widget-header",
+      "description": "Helper class to draw widget headers",
+      "attributes": [
+        {
+          "label": "error",
+          "description": "Use this attribute to put the widget-header in \"error mode\".\nWhen this attribute is not empty the subheader will display the given value.",
+          "required": false
+        },
+        {
+          "label": "header",
+          "description": "Main title",
+          "required": false
+        },
+        {
+          "label": "is-empty",
+          "description": "Use this attribute to put the widget-header in \"empty mode\".\nWhen this attribute is true the subheader will show the text defined by noDataMessage.",
+          "required": false
+        },
+        {
+          "label": "is-loading",
+          "description": "Use this attribute to put the widget-header in \"loading mode\".\nWhen this attribute is true the subheader text will be displayed as usual.",
+          "required": false
+        },
+        {
+          "label": "no-data-message",
+          "description": "Use this attribute to select the text displayed in the subheader when the header is in \"empty mode\".\nDefaults to \"NO DATA AVAILABLE\"",
+          "required": false
+        },
+        {
+          "label": "subheader",
+          "description": "Secondary title",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "as-widget-selection",
+      "description": "Helper class to draw widget selections",
+      "attributes": [
+        {
+          "label": "clear-text",
+          "description": "Text for the clear text",
+          "required": false
+        },
+        {
+          "label": "selection",
+          "description": "The text to be displayed",
+          "required": false
+        },
+        {
+          "label": "show-clear",
+          "description": "Whether to display the clear button or not",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "as-y-axis",
+      "description": "Helper class to draw the vertical axis on some widgets.\nWARNING: This component should be placed next to the SVG element.",
+      "attributes": [
+        {
+          "label": "from",
+          "description": "Lower limit of the axis",
+          "required": false
+        },
+        {
+          "label": "responsive",
+          "description": "Use this attribute to decide if the widget should be rerendered on window resize\nDefaults to true",
+          "required": false
+        },
+        {
+          "label": "to",
+          "description": "Upper limit of the axis",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

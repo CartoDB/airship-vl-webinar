@@ -1,0 +1,111 @@
+.as-tooltip {
+  --as--tooltip--background-color: var(--as--color--type-01, #2C2C2C);
+  --as--tooltip--color: var(--as--color--text-contrast, #FFF);
+  --as--tooltip--support-color: var(--as--color--white, #FFF);
+  --as--tooltip--primary--background-color: var(--as--primary--success, #1785FB);
+  --as--tooltip--primary--color: var(--as--tooltip--support-color);
+  --as--tooltip--secondary--background-color: var(--as--secondary--success, #0F2D53);
+  --as--tooltip--secondary--color: var(--as--tooltip--support-color);
+  --as--tooltip--complementary--background-color: var(--as--complementary--success, #47DB99);
+  --as--tooltip--complementary--color: var(--as--tooltip--support-color);
+  --as--tooltip--error--background-color: var(--as--color--error, #F3522B);
+  --as--tooltip--error-color: var(--as--tooltip--support-color);
+  --as--tooltip--warning--background-color: var(--as--color--warning, #FDB32B);
+  --as--tooltip--warning--color: var(--as--tooltip--support-color);
+  --as--tooltip--success--background-color: var(--as--color--success, #80B622);
+  --as--tooltip--success--color: var(--as--tooltip--support-color);
+  display: inline-flex;
+  position: relative;
+  padding: 4px 8px;
+  border-width: 0;
+  border-radius: 4px;
+  border-color: var(--as--tooltip--background-color);
+  background: var(--as--tooltip--background-color);
+  color: var(--as--tooltip--color);
+  font: var(--as--font--body); }
+  .as-tooltip::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: inherit; }
+  .as-tooltip--top::after {
+    top: 100%;
+    left: 50%;
+    transform: translateY(-6px) translateX(-5px) rotateZ(45deg); }
+  .as-tooltip--bot::after, .as-tooltip--bottom::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateY(6px) translateX(-5px) rotateZ(45deg); }
+  .as-tooltip--right::after {
+    top: 50%;
+    left: 0;
+    transform: translateY(-5px) translateX(-4px) rotateZ(45deg); }
+  .as-tooltip--left::after {
+    top: 50%;
+    right: 0;
+    transform: translateY(-4px) translateX(4px) rotateZ(45deg); }
+  .as-tooltip--primary {
+    border-color: var(--as--tooltip--primary--background-color);
+    background: var(--as--tooltip--primary--background-color);
+    color: var(--as--tooltip--primary--color); }
+  .as-tooltip--secondary {
+    border-color: var(--as--tooltip--secondary--background-color);
+    background: var(--as--tooltip--secondary--background-color);
+    color: var(--as--tooltip--secondary--color); }
+  .as-tooltip--complementary {
+    border-color: var(--as--tooltip--complementary--background-color);
+    background: var(--as--tooltip--complementary--background-color);
+    color: var(--as--tooltip--complementary--color); }
+  .as-tooltip--error {
+    border-color: var(--as--tooltip--error--background-color);
+    background: var(--as--tooltip--error--background-color);
+    color: var(--as--tooltip--error--color); }
+  .as-tooltip--warning {
+    border-color: var(--as--tooltip--warning--background-color);
+    background: var(--as--tooltip--warning--background-color);
+    color: var(--as--tooltip--warning--color); }
+  .as-tooltip--success {
+    border-color: var(--as--tooltip--success--background-color);
+    background: var(--as--tooltip--success--background-color);
+    color: var(--as--tooltip--success--color); }
+
+as-stacked-bar-widget {
+  --as--stacked-bar-widget--background-color: var(--as--color--ui-01, #FFF);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 228px;
+  height: 100%;
+  max-height: 100%;
+  overflow: auto;
+  background: var(--as--stacked-bar-widget--background-color); }
+  as-stacked-bar-widget .figure {
+    box-sizing: border-box;
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    padding: 18px 8px 17px 30px;
+    overflow: visible; }
+    as-stacked-bar-widget .figure .plot rect {
+      cursor: pointer; }
+    as-stacked-bar-widget .figure .y-axis {
+      --widget-axis-text-color: var(--as--color--type-01, #2C2C2C);
+      --widget-axis-line-color: var(--as--color--ui-05, #B3B3B3); }
+      as-stacked-bar-widget .figure .y-axis .tick text {
+        width: 30px;
+        fill: var(--widget-axis-text-color);
+        white-space: pre; }
+      as-stacked-bar-widget .figure .y-axis .tick line {
+        stroke: var(--widget-axis-line-color);
+        opacity: 0.1; }
+      as-stacked-bar-widget .figure .y-axis .tick line.zero {
+        opacity: 0.5; }
+      as-stacked-bar-widget .figure .y-axis .domain {
+        display: none; }
+  as-stacked-bar-widget [role="tooltip"] {
+    display: none;
+    position: fixed;
+    transform: translate(-50%, -120%);
+    pointer-events: none; }

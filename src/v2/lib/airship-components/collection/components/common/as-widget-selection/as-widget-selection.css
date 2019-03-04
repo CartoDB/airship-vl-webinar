@@ -1,0 +1,7 @@
+as-widget-selection .as-widget-selection__wrapper {
+  display: flex;
+  align-items: center; }
+
+as-widget-selection .as-widget-selection__clear {
+  margin-left: 8px;
+  cursor: pointer; }

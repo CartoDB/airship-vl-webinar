@@ -1,0 +1,1 @@
+function readableNumber(e){var a=Math.abs(Math.ceil(100*e)/100);if(a>=1e9)return((a/1e9).toFixed(1)+"G").padStart(5);if(a>=1e6)return((a/1e6).toFixed(1)+"M").padStart(5);if(a>=1e3)return((a/1e3).toFixed(1)+"K").padStart(5);var t=""+a;return t.padStart(6+Math.abs(t.length-3))}export{readableNumber as a};
