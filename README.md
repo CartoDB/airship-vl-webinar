@@ -12,7 +12,7 @@ This webinar objective is to give a broad view into CARTO's two new frontend lib
 
 Some knowledge of HTML / CSS / JavaScript is recommended.
 
-A Moden Browser (WebGL compatible) is required
+A Modern Browser (WebGL compatible) is required
 
 ## Set up
 
