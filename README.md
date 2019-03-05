@@ -24,25 +24,3 @@ Clone this repo, it's an npm module. Run the following commands:
 npm install
 npm run serve
 ```
-
-You will get some information as how to open the examples.
-t
-## Layout examples (airship-styles)
-
-### [`src/layout/01-just-the-map`](src/layout/01-just-the-map.html)
-
-### [`src/layout/02-toolbar`](src/layout/02-toolbar.html)
-
-### [`src/layout/03-sidebar-footer`](src/layout/03-sidebar-footer.html)
-
-### [`src/layout/04-panels`](src/layout/04-panels.html)
-
-### [`src/layout/05-as-responsive-content`](src/layout/05-as-responsive-content.html)
-
-## Components examples (airship-components)
-
-## Working with other libraries
-
-## What's next?
-
-Point to the docs
