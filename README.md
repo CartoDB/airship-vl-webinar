@@ -1,5 +1,3 @@
-![](./src/common/vue_banner.jpg)
-
 # Airship + VL webinar files
 
 * Authors: Román Jiménez & Víctor Velarde
